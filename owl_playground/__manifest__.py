@@ -46,5 +46,8 @@
             'web/static/src/core/assets.js',
             'owl_playground/static/src/**/*',
         ],
+        'web.assets_backend': [
+            'owl_playground/static/src/css/playground.css'
+        ]
     }
 }

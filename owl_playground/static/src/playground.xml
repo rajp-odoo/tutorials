@@ -2,9 +2,20 @@
 <templates xml:space="preserve">
 
     <t t-name="owl_playground.playground" owl="1">
-        <div class="p-3">
-            hello world
+        <p class="test">This is main page</p>
+        <div class="row">
+            <div class="col-6">         <Counter/>            </div>
+            <div class="col-6">        <Todolist />            </div>
         </div>
+       
+
+       <div style="border:2px solid red"> 
+            <t t-esc="todo.id">
+            </t>
+            <t t-esc="todo.description">
+            </t>
+       </div>
     </t>
+
 
 </templates>

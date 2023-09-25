@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="owl_playground.todo" owl="1">
+        <!-- <div class="p-3">
+            <input placeholder="number" id="inputdate"></input>  
+            <button class="btn btn-primary" t-on-click="addTodo">Add todo</button>              
+                        
+        </div> -->
+      
+       <div t-att-class="props.done ? 'text-decoration-line-through text-muted' : ''"> 
+            <t t-esc="props.id" />.
+            <t t-esc="props.description" />
+       </div>
+    </t>
+
+</templates>
