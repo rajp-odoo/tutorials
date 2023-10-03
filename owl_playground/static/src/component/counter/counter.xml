@@ -2,13 +2,15 @@
 <templates xml:space="preserve">
 
     <t t-name="owl_playground.counter" owl="1">
-        <div class="p-3">
-            <input placeholder="number" id="num" t-ref="num"></input>
+         <div class="p-3">
+            <input placeholder="number" t-ref="num" id="todotest"></input>
             <p>Counter: <t t-esc="state.value"/></p>
             <button class="btn btn-primary" t-on-click="increment">Increment</button>              
 
             
-        </div>
+        </div> 
+
+        
     </t>
 
 </templates>

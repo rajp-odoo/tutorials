@@ -3,7 +3,6 @@
 import { browser } from "@web/core/browser/browser";
 import { mount } from "@odoo/owl";
 import { Playground } from "./playground";
-import { Counter } from "./component/counter/counter";
 
 
 // The following code ensures that owl mount the component when ready.

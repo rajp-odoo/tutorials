@@ -8,10 +8,15 @@
                         
         </div> -->
       
-       <div t-att-class="props.done ? 'text-decoration-line-through text-muted' : ''"> 
+       <div t-att-class="props.done ? 'text-decoration-line-through text-muted' : ''" style=""> 
+            <t> <input type="checkbox" t-att-checked="props.done" t-on-click="ev => props.toggleState(props.id)" ></input></t>
             <t t-esc="props.id" />.
             <t t-esc="props.description" />
+            <t><button class="btn btn-danger" t-on-click="ev => props.toggleDelete(props.id)"> Del</button></t>
        </div>
+
     </t>
+
+
 
 </templates>

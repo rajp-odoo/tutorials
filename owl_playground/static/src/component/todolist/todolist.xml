@@ -3,10 +3,11 @@
 
     <t t-name="owl_playground.todolist" owl="1">
         <p>Todo list</p>
-        <input type="text" placeholder="todo"  t-on-keyup="addTodo" t-ref="inputElement"/>
+        <input type="text" placeholder="todo"  t-on-keyup="addTodo" t-ref="someInput"/>
         <t t-foreach="todoList" t-as="todo" t-key="todo.id">
-                <Todo id="todo.id" description="todo.description" done="todo.done" />
+                <Todo id="todo.id" description="todo.description" done="todo.done" toggleState.bind="toggleState" toggleDelete.bind="delete"/>
         </t>
+        <button class="btn btn-danger" t-on-click="deletetodo">Delete</button>
     </t>
 
 

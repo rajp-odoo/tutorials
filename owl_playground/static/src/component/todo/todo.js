@@ -1,6 +1,6 @@
 
 /** @odoo-module **/
-import { Component, useState ,useRef} from "@odoo/owl";
+import { Component, useState ,useRef,onWillDestroy,onWillUnmount} from "@odoo/owl";
 
 export class Todo extends Component {
     static template = "owl_playground.todo";
@@ -8,17 +8,26 @@ export class Todo extends Component {
     static props = {
         id:{type:Number},
         description:{type:String},
-        done:{type:Boolean}
+        done:{type:Boolean},
+        toggleState:{type:Function},
+        toggleDelete:{type:Function}
+        
     }
 
 
     
-    // setup() {
-    //     // this.state = useState({ value: 0 });
-    //     // this.todo = [];
-    //     // this.input = useRef('inputdate')
-    // }
+    setup() {
+        onWillDestroy(() => {
+            // do some cleanup
+            console.log("onwillDestroy")
+          });
 
+
+          onWillUnmount(() => {
+            // remove listener
+            console.log("onwillUnmount")
+          });
+    }
 
 
 
