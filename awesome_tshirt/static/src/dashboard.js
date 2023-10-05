@@ -5,9 +5,10 @@ import { Layout } from "@web/search/layout";
 import { getDefaultConfig } from "@web/views/view";
 import { useService } from "@web/core/utils/hooks";
 import { Domain } from "@web/core/domain";
+import { Card } from "./card/card";
 
 
-const { Component, useSubEnv } = owl;
+const { Component, useSubEnv,onWillStart } = owl;
 
 class AwesomeDashboard extends Component {
         setup() {
@@ -25,6 +26,25 @@ class AwesomeDashboard extends Component {
                 controlPanel: { "top-right": false, "bottom-right": false},
             };
             this.action = useService("action");
+            // this.rpc = useService("rpc");
+            this.tshirtService = useService("tshirtService");
+
+
+
+            this.keyToString = {
+                average_quantity: "Average amount of t-shirt by order this month",
+                average_time: "Average time for an order to go from 'new' to 'sent' or 'cancelled'",
+                nb_cancelled_orders: "Number of cancelled orders this month",
+                nb_new_orders: "Number of new orders this month",
+                total_amount: "Total amount of new orders this month",
+            };
+            onWillStart(async () => {
+                // this.statistics = await this.rpc("/awesome_tshirt/statistics");
+                this.statistics = await this.tshirtService.loadStatistics();
+
+                console.log(this.statistics)
+            });
+
 
         }
 
@@ -60,7 +80,7 @@ class AwesomeDashboard extends Component {
 
 
     }
-AwesomeDashboard.components = { Layout };
+AwesomeDashboard.components = { Layout, Card };
 AwesomeDashboard.template  = "awesome_tshirt.clientaction"
 registry.category("actions").add("awesome_tshirt.dashboard", AwesomeDashboard);
 
